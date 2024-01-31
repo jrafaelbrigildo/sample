@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>Bato Bato Pick</title>
+</head>
+
+<body>
+    <h1>Bato Papel Gunting</h1>
+    <button onclick="playGame('bato')"; 
+        class="bato">
+        <img src="/images/bato.png" 
+        class="move-icon"></button> 
+    <button onclick="playGame('papel')"; 
+        class="papel">
+        <img src="/images/papel.png" 
+        class="move-icon"></button> 
+    <button onclick="playGame('gunting')"; 
+        class="gunting">
+        <img src="/images/gunting.png" 
+        class="move-icon"></button><br><br>
+    <button onclick="
+        score.panalo = 0;
+        score.talo = 0;
+        score.tabla = 0;
+        updateScore();
+        localStorage.removeItem('score')";
+        >Reset Score</button>
+    
+    <p class="js-moves"></p>
+    <p class="js-result"></p>
+    <p class="js-standings"></p>
+</body>
+<script src="/scripts/rps.js"></script>
+</html>
