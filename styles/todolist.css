@@ -1,0 +1,14 @@
+.deleteBtn{
+    background-color: red;
+    color: white;
+}
+.addBtn{
+    background-color: green;
+    color: white;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid;
+    
+}
