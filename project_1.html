@@ -5,58 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bato Bato Pick</title>
 </head>
+<style>
+    .bato{
+       background: url(images/fist.png);
+       height:80px;
+       width: 80px;
+       color: none; 
+    }
+    .papel{
+       background: url(images/hand-paper.png);
+       height: 80px;
+       width: 80px;
+       color: none; 
+    }
+    .gunting{
+       background: url(images/scissors.png);
+       height: 80px;
+       width: 80px;
+       color: none; 
+    }
+</style>
 <body>
-    <p>Bato Papel Gunting</p>
-    <button onclick="playGame('bato')";>Bato</button> <button onclick="playGame('papel')";>Papel</button> <button onclick="playGame('gunting');">Gunting</button>
-
-    <script>
-        function playGame(playerMove){
-            const computerMove = pickComputerMove();
-            let result = '';
-            if (playerMove === 'bato' && computerMove === 'papel') {
-                result = 'Talo ka';
-            } else if(playerMove === 'papel' && computerMove ==='bato'){
-                result = 'Panalo ka';
-            }
-            else if(playerMove === 'bato' && computerMove ==='bato'){
-                result = 'Tabla';
-            }
-        
-            else if (playerMove === 'papel' && computerMove === 'gunting') {
-                result = 'Talo ka';
-            } else if(playerMove === 'gunting' && computerMove ==='papel'){
-                result = 'Panalo ka';
-            }
-            else if(playerMove === 'papel' && computerMove ==='papel'){
-                result = 'Tabla';
-            }
-        
-            else if (playerMove === 'gunting' && computerMove === 'bato') {
-                result = 'Talo ka';
-            } else if(playerMove === 'bato' && computerMove ==='gunting'){
-                result = 'Panalo ka';
-            }
-            else if(playerMove === 'gunting' && computerMove ==='gunting'){
-                result = 'Tabla';
-            }
-        
-            alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
-        }
-        function pickComputerMove(){
-            const randomNumber = Math.random();
-    
-            let computerMove = '';
-    
-            if (randomNumber >= 0 && randomNumber < 1/3) {
-                computerMove = "bato"
-            } else if(randomNumber >= 1/3 && randomNumber < 2/3) {
-                computerMove = 'papel'
-            }
-            else if(randomNumber >= 2/3 && randomNumber < 1) {
-                computerMove = 'gunting'
-            }
-            return computerMove;
-        }
-    </script>
+    <h1>Bato Papel Gunting</h1>
+    <button onclick="playGame('bato')"; class="bato"></button> 
+    <button onclick="playGame('papel')"; class="papel"></button> 
+    <button onclick="playGame('gunting')"; class="gunting"></button><br><br>
+    <button onclick="
+        score.panalo = 0;
+        score.talo = 0;
+        score.tabla = 0;
+        localStorage.removeItem('score')";>Reset Score</button>
+    <p>Panalo: </p>
 </body>
+<script>
+    let score = JSON.parse(localStorage.getItem('score')) || {
+        panalo: 0,
+        talo: 0,
+        tabla: 0
+      };
+      
+       /*
+      if (!score) {
+        score = {
+          wins: 0,
+          losses: 0,
+          ties: 0
+        };
+      }
+      */
+    function playGame(playerMove){
+        const computerMove = pickComputerMove();
+        let result = '';
+        if (playerMove === 'bato' && computerMove === 'papel') {
+            result = 'Talo ka';
+        } else if(playerMove === 'papel' && computerMove ==='bato'){
+            result = 'Panalo ka';
+        }
+        else if(playerMove === 'bato' && computerMove ==='bato'){
+            result = 'Tabla';
+        }
+    
+        else if (playerMove === 'papel' && computerMove === 'gunting') {
+            result = 'Talo ka';
+        } else if(playerMove === 'gunting' && computerMove ==='papel'){
+            result = 'Panalo ka';
+        }
+        else if(playerMove === 'papel' && computerMove ==='papel'){
+            result = 'Tabla';
+        }
+    
+        else if (playerMove === 'gunting' && computerMove === 'bato') {
+            result = 'Talo ka';
+        } else if(playerMove === 'bato' && computerMove ==='gunting'){
+            result = 'Panalo ka';
+        }
+        else if(playerMove === 'gunting' && computerMove ==='gunting'){
+            result = 'Tabla';
+        }
+        
+        if(result === 'Panalo ka'){
+            score.panalo += 1;
+        }else if(result === 'Talo ka'){
+            score.talo += 1;
+        }else if(result === 'Tabla'){
+            score.tabla += 1;
+        }
+        localStorage.setItem('score', JSON.stringify(score));
+
+        alert(`You picked ${playerMove}. Computer picked ${computerMove}\n Resulta: ${result}\n Panalo: ${score.panalo} Talo: ${score.talo} Tabla: ${score.tabla}`);
+    }
+    function pickComputerMove(){
+        const randomNumber = Math.random();
+
+        let computerMove = '';
+
+        if (randomNumber >= 0 && randomNumber < 1/3) {
+            computerMove = "bato"
+        } else if(randomNumber >= 1/3 && randomNumber < 2/3) {
+            computerMove = 'papel'
+        }
+        else if(randomNumber >= 2/3 && randomNumber < 1) {
+            computerMove = 'gunting'
+        }
+        return computerMove;
+    }
+</script>
 </html>
