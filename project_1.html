@@ -5,37 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bato Bato Pick</title>
 </head>
-<style>
-    .bato{
-       background: url(images/fist.png);
-       height:80px;
-       width: 80px;
-       color: none; 
-    }
-    .papel{
-       background: url(images/hand-paper.png);
-       height: 80px;
-       width: 80px;
-       color: none; 
-    }
-    .gunting{
-       background: url(images/scissors.png);
-       height: 80px;
-       width: 80px;
-       color: none; 
-    }
-</style>
+
 <body>
     <h1>Bato Papel Gunting</h1>
-    <button onclick="playGame('bato')"; class="bato"></button> 
-    <button onclick="playGame('papel')"; class="papel"></button> 
-    <button onclick="playGame('gunting')"; class="gunting"></button><br><br>
+    <button onclick="playGame('bato')"; 
+        class="bato">
+        <img src="/images/bato.png" 
+        class="move-icon"></button> 
+    <button onclick="playGame('papel')"; 
+        class="papel">
+        <img src="/images/papel.png" 
+        class="move-icon"></button> 
+    <button onclick="playGame('gunting')"; 
+        class="gunting">
+        <img src="/images/gunting.png" 
+        class="move-icon"></button><br><br>
     <button onclick="
         score.panalo = 0;
         score.talo = 0;
         score.tabla = 0;
-        localStorage.removeItem('score')";>Reset Score</button>
-    <p>Panalo: </p>
+        updateScore();
+        localStorage.removeItem('score')";
+        >Reset Score</button>
+    
+    <p class="js-moves"></p>
+    <p class="js-result"></p>
+    <p class="js-standings"></p>
 </body>
 <script>
     let score = JSON.parse(localStorage.getItem('score')) || {
@@ -43,7 +38,7 @@
         talo: 0,
         tabla: 0
       };
-      
+      updateScore();
        /*
       if (!score) {
         score = {
@@ -92,7 +87,13 @@
         }
         localStorage.setItem('score', JSON.stringify(score));
 
-        alert(`You picked ${playerMove}. Computer picked ${computerMove}\n Resulta: ${result}\n Panalo: ${score.panalo} Talo: ${score.talo} Tabla: ${score.tabla}`);
+        updateScore();
+
+        document.querySelector('.js-moves').innerHTML = `Pinili mo <img src = "/images/${playerMove}.png" class "move-icon"> <img src = "/images/${computerMove}.png" class = "move-icon">Pinili ng Kompyuter `;
+        document.querySelector('.js-result').innerHTML = `Resulta: ${result}`;
+    }
+    function updateScore(){
+        document.querySelector('.js-standings').innerHTML = `Panalo: ${score.panalo}, Talo: ${score.talo}, Tabla: ${score.tabla}`;
     }
     function pickComputerMove(){
         const randomNumber = Math.random();
