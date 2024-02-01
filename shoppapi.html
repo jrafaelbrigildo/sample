@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shoppapi</title>
+
+    <!-- This code is needed for responsive design to work.
+      (Responsive design = make the website look good on
+      smaller screen sizes like a phone or a tablet). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    
+    <!-- Here are the CSS files for this page. -->
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/shoppapi.css">
+  </head>
+  <body>
+    <div class="shoppapi-header">
+      <div class="amazon-header-left-section">
+        <a href="shoppapi.html" class="header-link">
+          <img class="shoppapi-logo"
+            src="images/shoppapi-logo.png">
+          <img class="shoppapi-logo-mobile"
+            src="images/shoppapi-logo-mobile.png">
+        </a>
+      </div>
+
+      <div class="shoppapi-header-middle-section">
+        <input class="search-bar" type="text" placeholder="Search">
+
+        <button class="search-button">
+          <img src="images/search.png" class="search-icon">
+        </button>
+      </div>
+
+      <div class="shoppapi-header-right-section">
+        <a class="orders-link header-link" href="orders.html">
+          <span class="returns-text">Returns</span>
+          <span class="orders-text">& Orders</span>
+        </a>
+
+        <a class="cart-link header-link" href="checkout.html">
+            <img src="images/shopping-cart.png" class="cart-icon">
+          <div class="cart-quantity js-cart-quantity">0</div>
+          <div class="cart-text">Cart</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="Product">
+        <h2>Products</h2>
+        <div class="products">
+            <div class="product-container">
+            <a id="addr">
+                <img src="images/jogger pants.png">
+                <p class="label">Unisex Plain Cotton Jogger Pants with zipper/makapal</p>
+            </a>
+            </div>
+            <div class="product-container">
+            <a id="addr">
+                <img src="images/womens_apparel.png">
+                <p class="label">Women's apparel</p>
+            </a>
+            
+            </div>  
+        </div>
+      </div>  
+    </div>
+
+    <script type="module" src="scripts/shoppapi.js"></script>
+  </body>
+</html>
