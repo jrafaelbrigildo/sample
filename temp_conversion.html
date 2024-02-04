@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Conversiont</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(214,249,80,1) 50%, rgba(0,212,255,1) 100%);
+        }
+        form{
+            background-color: rgb(72, 248, 239);
+            text-align: center;
+            max-width: 375px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            border: 5px solid black;
+        }
+        #textbox{
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+
+        }
+        table{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        #Convert{
+            color: white;
+            background-color: darkgreen;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        #result{
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h2>Temperature Conversion</h2>
+        <input type="number" id ="textbox" value="0"><br> 
+        <table>
+            <tr>
+                <td>
+                    <input type="radio" id="celToFah" name="unit"><label for="celToFah">Celsius to Fahrenheit</label>
+                </td>
+                <td>
+                    <input type="radio" id="celToKel" name="unit"><label for="celToKel">Celsius to Kelvin</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" id="fahToCel" name="unit"><label for="fahToCel">Fahrenheit to Celsius</label>
+                </td>
+                <td>
+                    <input type="radio" id="fahToKel" name="unit"><label for="fahToKel">Fahrenheit to Kelvin</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="kelToCel" name="unit"><label for="kelToCel">Kelvin to Celsius</label></td>
+                <td><input type="radio" id="kelToFah" name="unit"><label for="kelToFah">Kelvin to Fahrenheit</label></td>
+            </tr>
+        </table>
+        <button type="button" id="Convert" onclick="convert();">Submit</button>
+        <p id="result"></p>
+    </form>
+    <script src="scripts/temp_conversion.js"></script>
+</body>
+</html>
