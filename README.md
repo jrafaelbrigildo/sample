@@ -1,1 +1,1 @@
-# Rock Paper Scissor
+# Simple Javascript Program
