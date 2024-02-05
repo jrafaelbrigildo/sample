@@ -15,19 +15,19 @@ function convert(){
         result.textContent = `${t.toFixed(1)}°F`; 
     } else if(celToKel.checked){
         t = Number(textbox.value) + 273.15
-        result.textContent = `${t}K`
+        result.textContent = `${t.toFixed(2)}K`
     } else if(fahToCel.checked){
         t = (Number(textbox.value)-32)*(5/9);
-        result.textContent = `${t.toFixed(1)}°C`;
+        result.textContent = `${t.toFixed(2)}°C`;
     } else if(fahToKel.checked){
         t = (Number(textbox.value)-32)*(5/9) + 273.15;
         result.textContent = `${t.toFixed(2)}K`;
     } else if(kelToCel.checked){
         t = Number(textbox.value) - 273.15;
-        result.textContent = `${t}°C`
+        result.textContent = `${t.toFixed(2)}°C`
     } else if(kelToFah.checked){
         t = (Number(textbox.value)-273.15)*(9/5) + 32;
-        result.textContent = `${t}°F`; 
+        result.textContent = `${t.toFixed(2)}°F`; 
     }
     else {
         result.textContent = "Select unit to convert";
