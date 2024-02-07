@@ -58,6 +58,9 @@ button:active{
 #clearBtn{
     color: hsl(27, 100%, 53%);
 }
+#delBtn{
+    color: hsl(27, 100%, 53%);
+}
 #calcBtn{
     background-color: rgb(248, 124, 23);
 }

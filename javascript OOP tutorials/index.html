@@ -2,9 +2,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pokemon</title>
+    
 </head>
 <body>
-    <script type="module" src="main.js"></script>
+    <div>
+        <input type="text" id="pokemonName" placeholder="Enter Pokemon Name">
+        <button type="button" onclick="fetchPokemon()">Fetch Pokemon</button><br>
+        <img src="" alt ="Pokemon Sprite" id ="pokemon-img" style="display: none;">
+        <div >
+            <p id="pokemon-name"></p>
+            <p id="pokemon-type"></p>
+        </div>
+    </div>
+    <script src="pokemon.js"></script>
 </body>
 </html>

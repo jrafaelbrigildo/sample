@@ -7,6 +7,11 @@ function appendToDisplay(input){
 function clearDisplay(){
     calcDisplay.value = '';
 }
+function deleteLastCharacter() {
+    // Remove the last character from the display
+    calcDisplay.value = calcDisplay.value.slice(0, -1);
+}
+
 
 function calculate(){
     try {
